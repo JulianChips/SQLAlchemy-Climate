@@ -49,7 +49,7 @@ def home():
 @app.route("/api/v1.0/precipitation")
 def prcp():
 	"""Return dictionary of date and prcp information for the past year"""
-	dateprcp = session.query(Measurement.date, Measurement.prcp).filter(Measurement.date >= '2016-08-23').all()
+	dateprcp = session.query(Measurement.date, Measurement.prcp).all()
 	prcp_dict = {date: prcp for (date, prcp) in dateprcp}
 	return jsonify(prcp_dict)
 
